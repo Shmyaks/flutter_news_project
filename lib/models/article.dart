@@ -1,11 +1,11 @@
 class Article {
-  String title;
-  String author;
-  String description;
-  String urlToImage;
-  DateTime publshedAt;
-  String content;
-  String articleUrl;
+  String? title;
+  String? author;
+  String? description;
+  String? urlToImage;
+  DateTime? publshedAt;
+  String? content;
+  String? articleUrl;
 
   Article(
       {required this.title,
