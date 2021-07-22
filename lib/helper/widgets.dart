@@ -16,14 +16,17 @@ PreferredSize myAppBar() {
 }
 
 class NewsTile extends StatelessWidget {
-  final String imgUrl, title, desc, content, posturl;
+  final String imgUrl, title, desc, content, posturl, date, tags;
 
-  NewsTile(
-      {required this.imgUrl,
-      required this.desc,
-      required this.title,
-      required this.content,
-      required this.posturl});
+  NewsTile({
+    required this.imgUrl,
+    required this.desc,
+    required this.title,
+    required this.content,
+    required this.posturl,
+    required this.date,
+    required this.tags,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +79,25 @@ class NewsTile extends StatelessWidget {
                     textAlign: TextAlign.justify,
                     maxLines: 2,
                     style: TextStyle(color: Colors.black54, fontSize: 14),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 5),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(tags,
+                              textAlign: TextAlign.start,
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 14)),
+                        ),
+                        Expanded(
+                          child: Text(date,
+                              textAlign: TextAlign.end,
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 14)),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),

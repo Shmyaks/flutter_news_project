@@ -3,7 +3,7 @@ class News_modal {
   String? author;
   String? description;
   String? urlToImage;
-  DateTime? publshedAt;
+  String? publshedAt;
   String? content;
   String? articleUrl;
 
@@ -22,7 +22,7 @@ class News_modal {
       author: json['author'],
       description: json['description'],
       urlToImage: json['urlToImage'],
-      publshedAt: DateTime.parse(json['publishedAt']),
+      publshedAt: json['publishedAt'],
       content: json["content"],
       articleUrl: json["url"],
     );

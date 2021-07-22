@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       /// Categories
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 50),
+                        padding: EdgeInsets.symmetric(horizontal: 32),
                         height: 40,
                         width: 500,
                         child: ListView.builder(
@@ -81,6 +81,8 @@ class _HomePageState extends State<HomePage> {
                                 desc: newslist[index].description ?? "",
                                 content: newslist[index].content ?? "",
                                 posturl: newslist[index].articleUrl ?? "",
+                                date: newslist[index].publshedAt ?? "",
+                                tags: "tags",
                               );
                             }),
                       ),
