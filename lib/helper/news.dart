@@ -39,7 +39,7 @@ class NewsForCategorie {
 
   Future<void> parse(String category) async {
     String url =
-        "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}";
+        "http://newsapi.org/v2/top-headlines?country=in&category=$category&apiKey=${apiKey}";
 
     var response = await Parse.get_request(url);
     Map<String, dynamic> jsonData = jsonDecode(response);
