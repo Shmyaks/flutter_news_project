@@ -53,11 +53,12 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       /// Categories
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: EdgeInsets.symmetric(horizontal: 50),
                         height: 40,
+                        width: 500,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: categories.length ~/ 2,
+                            itemCount: categories.length,
                             itemBuilder: (context, index) {
                               return CategoryCard(
                                 imageAssetUrl: categories[index].imageAssetUrl,
@@ -65,27 +66,10 @@ class _HomePageState extends State<HomePage> {
                               );
                             }),
                       ),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        height: 40,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: categories.length ~/ 2,
-                            itemBuilder: (context, index) {
-                              return CategoryCard(
-                                imageAssetUrl: categories[
-                                        index + categories.length ~/ 2 - 1]
-                                    .imageAssetUrl,
-                                categoryName: categories[
-                                        index + categories.length ~/ 2 - 1]
-                                    .categorieName,
-                              );
-                            }),
-                      ),
 
                       /// News Article
                       Container(
-                        margin: EdgeInsets.only(top: 16),
+                        margin: EdgeInsets.all(8.0),
                         child: ListView.builder(
                             itemCount: newslist.length,
                             shrinkWrap: true,
@@ -133,7 +117,7 @@ class CategoryCard extends StatelessWidget {
           children: <Widget>[
             Container(
               alignment: Alignment.center,
-              height: 30,
+              height: 35,
               width: 100,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10), color: Colors.blue),

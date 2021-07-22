@@ -3,21 +3,11 @@ import 'package:news_page/views/article_view.dart';
 
 PreferredSize myAppBar() {
   return PreferredSize(
-    preferredSize: Size.fromHeight(70),
+    preferredSize: Size.fromHeight(10),
     child: AppBar(
       title: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            "Flutter",
-            style:
-                TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
-          ),
-          Text(
-            "News",
-            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w600),
-          )
-        ],
       ),
       backgroundColor: Colors.transparent,
       elevation: 0.0,
@@ -47,7 +37,7 @@ class NewsTile extends StatelessWidget {
                     )));
       },
       child: Container(
-          margin: EdgeInsets.only(bottom: 24),
+          margin: EdgeInsets.only(bottom: 30),
           width: MediaQuery.of(context).size.width,
           child: Container(
             child: Container(
@@ -58,23 +48,21 @@ class NewsTile extends StatelessWidget {
                       bottomRight: Radius.circular(6),
                       bottomLeft: Radius.circular(6))),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   ClipRRect(
                       borderRadius: BorderRadius.circular(6),
-                      child: Image.network(
-                        imgUrl,
-                        height: 200,
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.cover,
-                      )),
+                      child: Image.network(imgUrl,
+                          height: 200,
+                          width: MediaQuery.of(context).size.width,
+                          fit: BoxFit.cover)),
                   SizedBox(
                     height: 12,
                   ),
                   Text(
                     title,
-                    maxLines: 2,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(
                         color: Colors.black87,
                         fontSize: 20,
@@ -85,6 +73,7 @@ class NewsTile extends StatelessWidget {
                   ),
                   Text(
                     desc,
+                    textAlign: TextAlign.justify,
                     maxLines: 2,
                     style: TextStyle(color: Colors.black54, fontSize: 14),
                   )

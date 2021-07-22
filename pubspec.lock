@@ -171,11 +171,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "1.7.0"
-=======
-    version: "1.3.0"
->>>>>>> 48c7e0694afb7dd6cd1d4522a5fc230a180e76e0
   octo_image:
     dependency: transitive
     description:
