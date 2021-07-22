@@ -21,8 +21,8 @@ class _HomePageState extends State<HomePage> {
 
   void getNews() async {
     News news = News();
-    await news.getNews();
-    newslist = news.news;
+    await news.parse();
+    newslist = news.list_news;
     setState(() {
       _loading = false;
     });
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     _loading = true;
-    // TODO: implement initState
+
     super.initState();
 
     categories = getCategories();
@@ -54,14 +54,31 @@ class _HomePageState extends State<HomePage> {
                       /// Categories
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 16),
-                        height: 70,
+                        height: 40,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: categories.length,
+                            itemCount: categories.length ~/ 2,
                             itemBuilder: (context, index) {
                               return CategoryCard(
                                 imageAssetUrl: categories[index].imageAssetUrl,
                                 categoryName: categories[index].categorieName,
+                              );
+                            }),
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        height: 40,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: categories.length ~/ 2,
+                            itemBuilder: (context, index) {
+                              return CategoryCard(
+                                imageAssetUrl: categories[
+                                        index + categories.length ~/ 2 - 1]
+                                    .imageAssetUrl,
+                                categoryName: categories[
+                                        index + categories.length ~/ 2 - 1]
+                                    .categorieName,
                               );
                             }),
                       ),
@@ -114,22 +131,12 @@ class CategoryCard extends StatelessWidget {
         margin: EdgeInsets.only(right: 14),
         child: Stack(
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: CachedNetworkImage(
-                imageUrl: imageAssetUrl,
-                height: 60,
-                width: 120,
-                fit: BoxFit.cover,
-              ),
-            ),
             Container(
               alignment: Alignment.center,
-              height: 60,
-              width: 120,
+              height: 30,
+              width: 100,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: Colors.black26),
+                  borderRadius: BorderRadius.circular(10), color: Colors.blue),
               child: Text(
                 categoryName,
                 textAlign: TextAlign.center,
