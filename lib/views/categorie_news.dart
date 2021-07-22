@@ -23,8 +23,8 @@ class _CategoryNewsState extends State<CategoryNews> {
 
   void getNews() async {
     NewsForCategorie news = NewsForCategorie();
-    await news.getNewsForCategory(widget.newsCategory);
-    newslist = news.news;
+    await news.parse(widget.newsCategory);
+    newslist = news.list_news;
     setState(() {
       _loading = false;
     });
